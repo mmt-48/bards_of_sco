@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title><БАРДЫ ДЛЯ ДЕТЕЙ</title>
+      <style>
+
+       .thumb  { float:left; margin: 10px }
+       .thumb img  {
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+    padding: 15px; /* Расстояние от картинки до рамки */
+    background: #666; /* Цвет фона */
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 10px; /* Отступ снизу */
+    object-fit: cover;
+}
+.thumb:hover img  {
+    border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+    }
+  </style>
+ </head>
+ <body>
+
+ <h1 align="center">БАРДЫ ДЕТЯМ</h1>
+ <h1 align="right" >Посещений {{si.count_visit}}</h1>
+
+{% for c in comp %}
+<a  href="{% url 'index' c.pk %}">
+           <div class="thumb">
+               <p>{{c.name_composer}} {{c.fam_composer}}</p>
+               <img src="{{ c.photo.url }}"  width=189";  height="255">
+           </div>
+</a>
+ {% endfor %}
+
+
+</body>
+</html>

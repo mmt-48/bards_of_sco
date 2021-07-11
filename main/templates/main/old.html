@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+{%block odnoisp%}
+<div class="button1">
+
+ {% for ar in art %}
+  {% if e.artist_id_id == ar.pk %}
+   {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist  %}
+     <a> муз, слова и исполнение {{c.fam_composer}} <img src="{{c.photo.url }}"></a>
+   {%endif%}
+   {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer != ar.fam_artist  %}
+     <a> муз и слова {{c.fam_composer}} <img src="{{c.photo.url }}"> </a>
+    {% for t in trans %}
+     {% if s.trans_id_id == t.pk %}
+       <a> перевод {{t.fam_translator}} <img src="{{t.photo.url}}">  </a>
+     {% endif %}
+    {% endfor %}
+    <a> исп {{ar.fam_artist}} <img src="{{ar.photo.url}}  ">  </a>
+   {%endif%}
+   {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer == ar.fam_artist%}
+    <a> муз и исполнение {{c.fam_composer}} <img src="{{c.photo.url }}"> </a>
+    <a> слова {{a.fam_avtor_text}} <img src="{{a.photo.url}}"> <br> </a>
+    {% for t in trans %}
+     {% if s.trans_id_id == t.pk %}
+      <a> перевод {{t.fam_translator}} <img src="{{t.photo.url}}">  </a>
+     {% endif %}
+    {% endfor %}
+   {%endif%}
+   {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer != ar.fam_artist%}
+    <a> муз  {{c.fam_composer}} <img src="{{c.photo.url }}"></a>
+    <a> слова {{a.fam_avtor_text}} <img src="{{a.photo.url}}">  </a>
+    {% for t in trans %}
+     {% if s.trans_id_id == t.pk %}
+      <a> перевод {{t.fam_translator}} <img src="{{t.photo.url}}">  </a>
+     {% endif %}
+    {% endfor %}
+    <a> исп {{ar.fam_artist}} <img src="{{ar.photo.url}}">  </a>
+   {%endif%}
+   <audio controls>
+    <source src="{{e.audio_file.url}}" >
+    <p href="{{e.audio_file.url}}">Скачайте музыку</p>
+   </audio>
+  {%endif%}
+ {%endfor%}
+
+ </div>
+{% endblock %}
+
+{%block neodnoisp}
+<div class="button1">
+  {% if c.fam_composer == a.fam_avtor_text   %}
+    <a> муз и слова {{c.fam_composer}} <img src="{{c.photo.url }}"> </a>
+    {% for t in trans %}
+     {% if s.trans_id_id == t.pk %}
+      <a> перевод {{t.fam_translator}} <img src="{{t.photo.url}}">  </a>
+     {% endif %}
+    {% endfor %}
+  {%endif%}
+  {%if c.fam_composer !== a.fam_avtor_text  %}
+    <a> муз  {{c.fam_composer}} <img src="{{c.photo.url }}"></a>
+    <a> слова {{a.fam_avtor_text}} <img src="{{a.photo.url}}"> <br> </a>
+   {% for t in trans %}
+    {% if s.trans_id_id == t.pk %}
+     <a> перевод {{t.fam_translator}} <img src="{{t.photo.url}}">  </a>
+    {% endif %}
+   {% endfor %}
+  {%endif%}
+</div>
+<div class="button1">
+ {% for ar in art %}
+  {% if e.artist_id_id == ar.pk %}
+   <a> исп {{a.fam_artist}} <img src="{{a.photo.url}}  ">  </a>
+  {% endif %}
+ {% endfor %}
+ <audio controls>
+  <source src="{{e.audio_file.url}}" >
+  <p href="{{e.audio_file.url}}">Скачайте музыку</p>
+ </audio>
+</div>
+
+
+</body>
+</html>
