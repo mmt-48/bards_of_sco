@@ -64,7 +64,7 @@ def index01(request):
         settings.SIGN_OF_VISIT = 1
 
         si.count_visit = si.count_visit+1
-        si.save()
+       # si.save()
 
     si = Cvisit.objects.get(pk=1)
 
