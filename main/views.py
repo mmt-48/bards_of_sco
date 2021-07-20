@@ -9,36 +9,17 @@ from .models import Execution
 from .models import Cvisit
 from django.conf import settings
 
+
 def index(request, comp_id):
     son = Song.objects.filter(comp_id=comp_id)
 
-    for s in son:
-        s.workfield = 0
-        s.save()
-
-    exe = Execution.objects.filter()
-    for e in exe:
-        s = Song.objects.get(pk=e.song_id_id)
-        c = Composer.objects.get(pk=s.comp_id_id)
-        e.workfield2 = 2
-        if c.pk == comp_id:
-            e.workfield2 = 1
-
-        e.workfield = c.fam_composer.strip()+str(s.name_song)
-
-        e.save()
-        s.workfield = s.workfield+1
-        s.save()
-
-    son = Song.objects.filter(comp_id=comp_id)
-
-    exe = Execution.objects.filter(workfield2=1).order_by('workfield')
+    exe = Execution.objects.filter(workfield2=comp_id).order_by('workfield')
 
     u = 0
     i = 0
     for e in exe:
         e.workfield3 = i
-        i = i+1
+        i = i + 1
         e.workfield1 = 1
         if u == e.song_id_id:
             e.workfield1 = 2
@@ -46,7 +27,7 @@ def index(request, comp_id):
 
     uu = Composer.objects.get(pk=comp_id)
 
-    pn = uu.name_composer+' '+uu.fam_composer
+    pn = uu.name_composer + ' ' + uu.fam_composer
 
     comp = Composer.objects.filter(pk=comp_id)
 
@@ -72,8 +53,10 @@ def index(request, comp_id):
     return render(request, 'main/index.html', context=context)
 
 
-
 def index01(request):
+
+        # indexx()
+
     si = Cvisit.objects.get(pk=1)
 
     if settings.SIGN_OF_VISIT == 0:
@@ -105,3 +88,28 @@ def index02(request,exec_id):
                }
 
     return render(request, 'main/index02.html', context=context)
+
+
+def indexx():
+
+    son = Song.objects.filter()
+    for s in son:
+        s.workfield = 0
+        s.save()
+
+    comp = Composer.objects.filter()
+
+    for cc in comp:
+
+        exe = Execution.objects.filter()
+        for e in exe:
+            s = Song.objects.get(pk=e.song_id_id)
+            c = Composer.objects.get(pk=s.comp_id_id)
+
+            e.workfield2 = c.pk
+            e.workfield = c.fam_composer.strip() + str(s.name_song)
+            e.save()
+            s.workfield = s.workfield + 1
+            s.save()
+
+    return 0
