@@ -57,27 +57,14 @@ def index01(request):
 
         # indexx()
 
-    si = Cvisit.objects.get(pk=1)
-
-    if settings.SIGN_OF_VISIT == 0:
-
-        settings.SIGN_OF_VISIT = 1
-
-        si.count_visit = si.count_visit+1
-       # si.save()
-
-    si = Cvisit.objects.get(pk=1)
-
     comp = Composer.objects.filter().order_by('fam_composer')
 
     comp1 = Composer1.objects.filter()
 
-
     context = {
         'comp': comp,
-        'comp1': comp1,
-        'si': si,
-        }
+        'comp1': comp1
+         }
 
     return render(request, 'main/index01.html', context=context)
 
