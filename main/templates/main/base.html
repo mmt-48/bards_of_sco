@@ -9,14 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-
-
-
     <title>БАРДЫ - ДЕТЯМ</title>
 
 
 
       <style>
+      .thumbb  { float:left; margin: 10px; width: 100% }
       .thumb  { float:left; margin: 10px }
        .thumb img  {
        border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
@@ -106,8 +104,12 @@ function other_pause(b){
   {% for s in son %}
    {% if e.song_id_id == s.pk %}
     {%if e.workfield1 == 1%}
-      <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
+<div class="thumbb">
+ <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
       <h1 align="center"> {{s.name_song}} </h1>
+   </div>
+
+
     {% endif %}
     {% for c in comp %}
      {% if s.comp_id_id == c.pk %}

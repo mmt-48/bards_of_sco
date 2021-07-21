@@ -7,11 +7,11 @@
    {% if e.artist_id_id == ar.pk %}
 
     {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist  %}
-     <div class="thumb">
+
+      <div class="thumb">
 
        <p> музыка, слова и исполнение {{c.name_composer}} {{c.fam_composer}}</p>
        <img src="{{c.photo.url }}" width="189"  height="255">
-
 
       <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
@@ -22,7 +22,9 @@
     {%endif%}
 
     {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer != ar.fam_artist  %}
+
      <div class="thumb">
+
       <p> музыка и слова {{c.name_composer}} {{c.fam_composer}}</p>
       <img src="{{c.photo.url }}" width="189" height="255">
      </div>
@@ -47,7 +49,7 @@
     {%endif%}
 
     {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer == ar.fam_artist%}
-     <div class="thumb">
+      <div class="thumb">
       <p> музыка  {{c.name_composer}} {{c.fam_composer}}</p>
       <img src="{{c.photo.url }}" width="189"  height="255">
      </div>
@@ -84,7 +86,9 @@
     {%endif%}
 
     {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer != ar.fam_artist%}
+
      <div class="thumb">
+
       <p> музыка  {{c.name_composer}} {{c.fam_composer}}</p>
       <img src="{{c.photo.url }}" width="189"  height="255">
      </div>
@@ -129,7 +133,9 @@
  {%if e.workfield1 == 1%}
 
    {% if c.fam_composer == a.fam_avtor_text   %}
+
     <div class="thumb">
+
      <p> музыка и слова {{c.name_composer}} {{c.fam_composer}}</p>
      <img src="{{c.photo.url}}"  width="189"  height="255">
     </div>
@@ -144,7 +150,8 @@
    {%endif%}
 
    {%if c.fam_composer != a.fam_avtor_text  %}
-    <div class="thumb">
+     <div class="thumb">
+
      <p> музыка  {{c.name_composer}} {{c.fam_composer}} </p>
      <img src="{{c.photo.url }}" width="189"  height="255">
     </div>
