@@ -55,7 +55,7 @@ def index(request, comp_id):
 
 def index01(request):
 
-        # indexx()
+    #indexx()
 
     comp = Composer.objects.filter().order_by('fam_composer')
 
@@ -92,11 +92,16 @@ def indexx():
         for e in exe:
             s = Song.objects.get(pk=e.song_id_id)
             c = Composer.objects.get(pk=s.comp_id_id)
+            if cc.pk == c.pk:
+                e.workfield2 = c.pk
+                a = Artist.objects.get(pk=e.artist_id_id)
+                dd = c.fam_composer[:30]+str(s.name_song)[:40]
+                e.workfield = dd + '9'
+                if c.fam_composer.strip() == a.fam_artist.strip() and c.name_composer.strip() == a.name_artist.strip():
+                    e.workfield = dd+'0'
 
-            e.workfield2 = c.pk
-            e.workfield = c.fam_composer.strip() + str(s.name_song)
-            e.save()
-            s.workfield = s.workfield + 1
-            s.save()
+                e.save()
+                s.workfield = s.workfield + 1
+                s.save()
 
-    return 0
+    return
