@@ -82,22 +82,20 @@
 
   {% for ar in art %}
    {% if e.artist_id_id == ar.pk %}
-    <div class="button1">
 
-    <div class="thumb">
-
-     <p> исполнение <br/> {{ar.name_artist}} {{ar.fam_artist}}</p>
-
-     <img src="{{ar.photo.url}}" >
+    <div class="thumb1">
+       <p> исполнение </p>
+       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+       <img src="{{ar.photo.url}}" >
      </div>
-      <div class="thumb">
+      <div class="thumb1">
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
      </div>
-     </div>
+
    {% endif %}
   {% endfor %}
 
