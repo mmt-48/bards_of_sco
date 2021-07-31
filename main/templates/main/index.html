@@ -88,6 +88,8 @@
        <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
        <img src="{{ar.photo.url}}" >
      </div>
+   {% endif %}
+ {% endfor %}
 
       <div class="thumb">
        <pre> <p>  </p> </pre>
@@ -95,9 +97,8 @@
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
-     </div>
+      </div>
 
-   {% endif %}
-  {% endfor %}
+
 
 {%endblock%}
