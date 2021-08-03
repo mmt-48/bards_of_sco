@@ -25,7 +25,7 @@
     {%endif%}
 
      <p> {{c.name_composer}} {{c.fam_composer}}</p>
-     <img src="{{c.photo.url }}">
+     <img src="{{c.photo.url }}" width="189">
 
     </div>
 
@@ -34,34 +34,49 @@
        <div class="thumb">
         <p> музыка при участии </p>
         <p> {{c2.name_composer}} {{c2.fam_composer}}</p>
-        <img src="{{c2.photo.url }}">
+        <img src="{{c2.photo.url }}" width="189">
        </div>
       {% endif %}
      {% endfor %}
 
-     {%if c.fam_composer != a.fam_avtor_text %}
+    {%if c.fam_composer != a.fam_avtor_text %}
       <div class="thumb">
+          {%if a.fam_avtor_text == ar.fam_artist%}
+       <p> слова и исполнение</p>
+          {%endif%}
+          {%if a.fam_avtor_text != ar.fam_artist%}
        <p> слова </p>
+          {%endif%}
+
        <p>{{a.name_avtor_text}} {{a.fam_avtor_text}}</p>
-       <img src="{{a.photo.url }}" >
+       <img src="{{a.photo.url }}" width="189" >
       </div>
      {%endif%}
+
+
 
     {% for t in trans %}
       {% if s.trans_id_id == t.pk %}
        <div class="thumb">
         <p> перевод </p>
         <p>{{t.name_translator}} {{t.fam_translator}}</p>
-        <img src="{{t.photo.url}}" >
+        <img src="{{t.photo.url}}" width="189" >
        </div>
       {% endif %}
      {% endfor %}
 
-    {% if c.fam_composer != ar.fam_artist  %}
+    {% if c.fam_composer != ar.fam_artist  and  a.fam_avtor_text != ar.fam_artist %}
      <div class="thumb">
-      <p> исполнение </p>
-      <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-      <img src="{{ar.photo.url}}" >
+
+          <p> исполнение </p>
+        {% if "1" in ar.name_artist %}
+        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+       <img src="{{ar.photo.url}}" width="255" >
+        {%endif%}
+      {% if "1" not in ar.name_artist %}
+       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+       <img src="{{ar.photo.url}}" width="189" >
+        {%endif%}
      </div>
     {%endif%}
 
@@ -85,8 +100,15 @@
 
     <div class="thumb">
        <p> исполнение </p>
+        {% if "1" in ar.name_artist %}
+
+        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+       <img src="{{ar.photo.url}}" width="255" >
+        {%endif%}
+      {% if "1" not in ar.name_artist %}
        <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-       <img src="{{ar.photo.url}}" >
+       <img src="{{ar.photo.url}}" width="189">
+        {%endif%}
      </div>
    {% endif %}
  {% endfor %}
