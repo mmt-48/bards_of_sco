@@ -58,7 +58,7 @@
     {% for t in trans %}
       {% if s.trans_id_id == t.pk %}
        <div class="thumb">
-        <p> перевод </p>
+        <p> перевод {{s.language}}</p>
         <p>{{t.name_translator}} {{t.fam_translator}}</p>
         <img src="{{t.photo.url}}" width="189" >
        </div>

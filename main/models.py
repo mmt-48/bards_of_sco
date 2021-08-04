@@ -73,6 +73,7 @@ class Song(models.Model):
     trans_id = models.ForeignKey('translator', on_delete=models.PROTECT, blank=True, null=True, db_index=True)
     name_song = models.CharField(max_length=200, db_index=True)
     workfield = models.IntegerField(blank=True, null=True, default=0)
+    language = models.CharField(max_length=20, default='')
 
     def __str__(self):
         return self.name_song
