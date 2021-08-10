@@ -8,20 +8,28 @@
 
     <div class="thumb">
 
-    {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist  %}
+    {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist %}
+        {% if c.name_composer == a.name_avtor_text  and c.name_composer == ar.name_artist  %}
       <p> музыка, слова и исполнение </p>
+        {%endif%}
     {%endif%}
 
-    {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer != ar.fam_artist  %}
-      <p> музыка и слова </p>
+    {% if c.fam_composer == a.fam_avtor_text and  c.name_composer == a.name_avtor_text %}
+        {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
+          <p> музыка и слова </p>
+       {%endif%}
     {%endif%}
 
-    {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer == ar.fam_artist%}
+    {%if c.fam_composer != a.fam_avtor_text or  c.name_composer != a.name_avtor_text %}
+        {% if c.fam_composer == ar.fam_artist  and c.name_composer == ar.name_artist  %}
       <p> музыка и исполнение </p>
+         {%endif%}
     {%endif%}
 
-    {%if c.fam_composer != a.fam_avtor_text  and c.fam_composer != ar.fam_artist%}
+    {%if c.fam_composer != a.fam_avtor_text or c.name_composer != a.name_avtor_text %}
+      {%if  c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
       <p> музыка </p>
+        {%endif%}
     {%endif%}
 
      <p> {{c.name_composer}} {{c.fam_composer}}</p>
@@ -39,12 +47,12 @@
       {% endif %}
      {% endfor %}
 
-    {%if c.fam_composer != a.fam_avtor_text %}
+    {%if c.fam_composer != a.fam_avtor_text or c.name_composer != a.name_avtor_text %}
       <div class="thumb">
-          {%if a.fam_avtor_text == ar.fam_artist%}
+          {%if a.fam_avtor_text == ar.fam_artist and a.name_avtor_text == ar.name_artist  %}
        <p> слова и исполнение</p>
           {%endif%}
-          {%if a.fam_avtor_text != ar.fam_artist%}
+          {%if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist   %}
        <p> слова </p>
           {%endif%}
 
@@ -65,7 +73,8 @@
       {% endif %}
      {% endfor %}
 
-    {% if c.fam_composer != ar.fam_artist  and  a.fam_avtor_text != ar.fam_artist %}
+    {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
+      {%  if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist%}
      <div class="thumb">
 
           <p> исполнение </p>
@@ -78,6 +87,7 @@
        <img src="{{ar.photo.url}}" width="189" >
         {%endif%}
      </div>
+    {%endif%}
     {%endif%}
 
      <div class="thumb">
@@ -120,7 +130,4 @@
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
       </div>
-
-
-
 {%endblock%}
