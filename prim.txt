@@ -1,0 +1,13 @@
+git add main/views.py
+git add db.sqlite3
+git commit
+в редакторе внести комментарий
+zakomentirovat
+git push git@github.com:mmt-48/bards_for_children.git master
+
+voiti v putti  
+cd b (TAB)
+CTRL-R 
+git pull origin master
+sudo systemctl restart p5
+
