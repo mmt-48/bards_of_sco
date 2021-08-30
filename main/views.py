@@ -105,3 +105,6 @@ def indexx():
                 s.save()
 
     return
+
+def sco(request):
+    return render(request, 'main/sco.html')

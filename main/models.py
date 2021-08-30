@@ -8,7 +8,7 @@ class Composer(models.Model):
     photo = models.ImageField(upload_to='composer', default='')
 
     def __str__(self):
-        return self.fam_composer
+        return self.name_composer+self.fam_composer
 
     class Meta:
         verbose_name = 'composer'
@@ -24,7 +24,7 @@ class Avtor_text(models.Model):
     photo = models.ImageField(upload_to='avtor', default='')
 
     def __str__(self):
-        return self.fam_avtor_text
+        return self.name_avtor_text+self.fam_avtor_text
 
     class Meta:
         verbose_name = 'avtor_text'
@@ -56,7 +56,7 @@ class Artist(models.Model):
     photo = models.ImageField(upload_to='artist', default='')
 
     def __str__(self):
-        return self.fam_artist
+        return self.name_artist+self.fam_artist
 
     class Meta:
         verbose_name = 'artist'
@@ -73,7 +73,7 @@ class Song(models.Model):
     trans_id = models.ForeignKey('translator', on_delete=models.PROTECT, blank=True, null=True, db_index=True)
     name_song = models.CharField(max_length=200, db_index=True)
     workfield = models.IntegerField(blank=True, null=True, default=0)
-    language = models.CharField(max_length=20, default='')
+    language = models.CharField(max_length=20, default='',blank=True, null=True)
 
     def __str__(self):
         return self.name_song
@@ -89,7 +89,7 @@ class Song(models.Model):
 class Execution(models.Model):
     song_id = models.ForeignKey('song', on_delete=models.PROTECT, null=True, db_index=True)
     artist_id = models.ForeignKey('artist', on_delete=models.PROTECT, null=True, db_index=True)
-    audio_file = models.FileField(upload_to='audio/', blank=True)
+    audio_file = models.FileField(upload_to='audio/')
     note = models.CharField(max_length=200, db_index=True)
     workfield = models.CharField(max_length=200, db_index=True, blank=True)
     workfield1 = models.IntegerField(blank=True, null=True)
