@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,15 +22,25 @@
 .thumb:hover img  {
     border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
     }
-  </style>
- </head> b
- <body>
 
- <h1 align="center">БАРДЫ SCO</h1>
- <a href="mailto:bards@tejblum.pp.ru">Контакты:bards@tejblum.pp.ru</a>
- <pre> <p></p></pre>
- <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
+
+    .thumb1  { float:center; margin: 10px; }
+       .thumb1 img  {
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+    padding: 15px; /* Расстояние от картинки до рамки */
+    background: #666; /* Цвет фона */
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 10px; /* Отступ снизу */
+    object-fit: cover;
+}
+.thumb1:hover img  {
+    border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+    }
+
+  </style>
+ </head>
+ <body>
+ <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -42,6 +53,25 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/83256124" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+
+ <h1 align="center">БАРДЫ SCO</h1>
+ <a href="mailto:bards@tejblum.pp.ru">Контакты:bards@tejblum.pp.ru</a>
+ <pre> <p></p></pre>
+ <!-- Yandex.Metrika counter -->
+
+  <a  href="{%url 'sco' %}">
+    <div class="thumb1">
+      <p>Что такое SCO</p>
+        <img src="{% static 'main\img\sco.jpg'%}"  width="255"  height="189">
+      </div>
+    </a>
+
+ <pre> <p></p></pre>
+
+
+
+
 
 
 
