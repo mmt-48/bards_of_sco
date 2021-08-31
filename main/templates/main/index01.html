@@ -27,11 +27,7 @@
     .thumb1  { float:center; margin: 10px; }
        .thumb1 img  {
        border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
-    padding: 15px; /* Расстояние от картинки до рамки */
-    background: #666; /* Цвет фона */
-    margin-right: 10px; /* Отступ справа */
-    margin-bottom: 10px; /* Отступ снизу */
-    object-fit: cover;
+       object-fit: cover;
 }
 .thumb1:hover img  {
     border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
@@ -63,16 +59,11 @@
   <a  href="{%url 'sco' %}">
     <div class="thumb1">
       <p>Что такое SCO</p>
-        <img src="{% static 'main\img\sco.jpg'%}"  width="255"  height="189">
+        <img src="{% static 'main\img\sco.jpg'%}">
       </div>
     </a>
 
  <pre> <p></p></pre>
-
-
-
-
-
 
 
 {% for c in comp %}
