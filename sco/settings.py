@@ -26,7 +26,7 @@ SECRET_KEY = '06*zp5+p57!$#z%+1+9(nx&+u9zoy!5xa2&sn3(^ev*2r@fm*)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'BARDS_SCO.RU']
+ALLOWED_HOSTS = ['127.0.0.1', 'BARDS-SCO.RU']
 
 
 # Application definition
