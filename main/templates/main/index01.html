@@ -55,14 +55,15 @@
  <a href="mailto:bards@tejblum.pp.ru">Контакты:bards@tejblum.pp.ru</a>
  <pre> <p></p></pre>
  <!-- Yandex.Metrika counter -->
-
+{% for c1 in comp1 %}
   <a  href="{%url 'sco' %}">
     <div class="thumb1">
       <p>Что такое SCO?</p>
-        <img src="{% static 'main\img\sco.jpg'%}">
+        <img src="{{ c1.photo.url }}">
+       <!-- <img src="{% static 'main/img/sco.jpg'%}"> -->
       </div>
     </a>
-
+{% endfor %}
  <pre> <p></p></pre>
 
 
