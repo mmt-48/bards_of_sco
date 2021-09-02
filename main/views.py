@@ -57,7 +57,8 @@ def index01(request):
 
     #indexx()
 
-    comp = Composer.objects.filter().order_by('fam_composer')
+
+    comp = Composer.objects.filter().order_by('order')
 
     comp1 = Composer1.objects.filter()
 
