@@ -128,7 +128,12 @@
     {%if e.workfield1 == 1%}
 <div class="thumbb">
  <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
-      <h1 align="center"> {{s.name_song}} </h1>
+    {% if "1" in s.name_song %}
+         <h1 align="center"> {{s.name_song|slice:"1:"}} </h1>
+    {% endif %}
+    {% if "1" not in s.name_song %}
+         <h1 align="center"> {{s.name_song}} </h1>
+    {% endif %}
    </div>
 
 
