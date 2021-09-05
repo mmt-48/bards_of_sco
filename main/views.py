@@ -57,7 +57,6 @@ def index01(request):
 
     #indexx()
 
-
     comp = Composer.objects.filter().order_by('orderr')
 
     comp1 = Composer1.objects.filter()
