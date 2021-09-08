@@ -7,6 +7,7 @@ class Composer(models.Model):
     fam_composer = models.CharField(max_length=200, db_index=True, default='')
     photo = models.ImageField(upload_to='composer', default='')
     orderr = models.CharField(max_length=3,default='')
+    background_ph = models.ImageField(upload_to='composer', default='')
 
     def __str__(self):
         return self.name_composer+self.fam_composer

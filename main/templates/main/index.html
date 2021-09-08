@@ -6,7 +6,7 @@
 
    {% if e.artist_id_id == ar.pk %}
 
-    <div class="thumb">
+    <div class="thumb" >
 
     {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist %}
         {% if c.name_composer == a.name_avtor_text  and c.name_composer == ar.name_artist  %}
@@ -81,8 +81,8 @@
         {% if "1" in ar.name_artist %}
         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
        <img src="{{ar.photo.url}}" width="255" >
-        {%endif%}
-      {% if "1" not in ar.name_artist %}
+        {%else%}
+
        <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
        <img src="{{ar.photo.url}}" width="189" >
         {%endif%}
@@ -113,8 +113,8 @@
         {% if "1" in ar.name_artist %}
         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
        <img src="{{ar.photo.url}}" width="255" >
-        {%endif%}
-      {% if "1" not in ar.name_artist %}
+        {%else%}
+
        <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
        <img src="{{ar.photo.url}}" width="189">
         {%endif%}
