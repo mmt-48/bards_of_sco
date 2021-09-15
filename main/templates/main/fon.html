@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>ФОН</title>
+      <style>
+
+       .thumb  { float:left; margin: 10px }
+       .thumb img  {
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+    padding: 0px /*5px;  Расстояние от картинки до рамки */
+  /* background: #DEB887    #666;  Цвет фона */
+
+    margin-right: 10px; /* Отступ справа */
+    margin-bottom: 10px; /* Отступ снизу */
+    object-fit: cover;
+}
+.thumb:hover img  {
+    border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+    }
+
+
+  </style>
+ </head>
+ <body>
+
+{% for c in comp %}
+<a  href="{% url 'fonp' c.pk %}">
+           <div class="thumb">
+               <p>{{c.name_composer}} {{c.fam_composer}}</p>
+               <img src="{{ c.photo.url }}"  width="189"  height="255">
+           </div>
+</a>
+ {% endfor %}
+
+
+
+</body>
+</html>

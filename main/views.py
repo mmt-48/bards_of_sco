@@ -53,9 +53,66 @@ def index(request, comp_id):
     return render(request, 'main/index.html', context=context)
 
 
+def fonp(request, comp_id):
+    son = Song.objects.filter(comp_id=comp_id)
+
+    exe = Execution.objects.filter(workfield2=comp_id).order_by('workfield')
+
+    u = 0
+    i = 0
+    for e in exe:
+        e.workfield3 = i
+        i = i + 1
+        e.workfield1 = 1
+        if u == e.song_id_id:
+            e.workfield1 = 2
+        u = e.song_id_id
+
+    uu = Composer.objects.get(pk=comp_id)
+
+    pn = uu.name_composer + ' ' + uu.fam_composer
+
+    comp = Composer.objects.filter(pk=comp_id)
+
+    comp1 = Composer1.objects.filter()
+
+    avt = Avtor_text.objects.all
+
+    art = Artist.objects.all
+
+    trans = Translator.objects.all
+
+    context = {
+        'comp': comp,
+        'comp1': comp1,
+        'avt': avt,
+        'trans': trans,
+        'art': art,
+        'son': son,
+        'exe': exe,
+        'pn': pn
+        }
+
+    return render(request, 'main/fonp.html', context=context)
+
+
 def index01(request):
 
-    #indexx()
+    indexx()
+
+    comp = Composer.objects.filter().order_by('orderr')
+
+    comp1 = Composer1.objects.filter()
+
+    context = {
+        'comp': comp,
+        'comp1': comp1
+              }
+
+    return render(request, 'main/index01.html', context=context)
+
+
+def fon(request):
 
     comp = Composer.objects.filter().order_by('orderr')
 
@@ -66,9 +123,11 @@ def index01(request):
         'comp1': comp1
          }
 
-    return render(request, 'main/index01.html', context=context)
+    return render(request, 'main/fon.html', context=context)
 
-def index02(request,exec_id):
+
+def index02(request, exec_id):
+
     exe = Execution.objects.get(pk=exec_id)
     context = {
         'exe': exe,
@@ -105,6 +164,7 @@ def indexx():
                 s.save()
 
     return
+
 
 def sco(request):
     return render(request, 'main/sco.html')

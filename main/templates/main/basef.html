@@ -12,7 +12,22 @@
     <title>{{comp.name_composer}} {{comp.fam_composer}}</title>
 
       <style>
+      /* fon */
+      body::before{
+     /* background: #000 url("{%static  'main\img\mont.jpg' %}");  Фоновый цвет и фоновый рисунок*/
 
+		 {% for c in comp %}
+		 background: url("{{ c.background_ph.url }}");
+		 {% endfor %}
+		 /* Принудительно указываем высоту равную 100% от высоты окна браузера */
+         /*min-height:100%;*/
+         background-attachment: fixed; /* Фон страницы фиксируется */
+         /* Магия */
+         background-size:cover;
+         /*filter: blur(2px);*/
+                    }
+
+         /*end fon*/
       audio {
       width:255px;
       }
