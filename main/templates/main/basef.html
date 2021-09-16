@@ -12,7 +12,9 @@
     <title>{{comp.name_composer}} {{comp.fam_composer}}</title>
 
       <style>
+
       /* fon */
+      {% if 2 == 1 %}
       body::before{
      /* background: #000 url("{%static  'main\img\mont.jpg' %}");  Фоновый цвет и фоновый рисунок*/
 
@@ -27,6 +29,27 @@
          background-size:cover;
          /*filter: blur(2px);*/
                     }
+{% endif %}
+
+body{
+  position: relative;
+}
+body::before {
+
+    {% for c in comp %}
+		 background: url("{{ c.background_ph.url }}") no-repeat center center;
+	{% endfor %}
+
+    background-size: cover;
+    content: ' ';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+}
 
          /*end fon*/
       audio {
