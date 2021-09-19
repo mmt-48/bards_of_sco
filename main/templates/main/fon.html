@@ -8,17 +8,49 @@
 
         <title>ФОН</title>
       <style>
+      .px_l {
+  width: 210px;
+  background-color: white;
+  color: red;
+  border: 1px solid white;
+}
+body{
+  position: relative;
+
+}
+body::before {
+
+    {% for c1 in comp1 %}
+		 background:  url("{{ c1.fon.url }}") no-repeat center center;
+	{% endfor %}
+
+    background-size: cover;
+    content: ' ';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+    filter: opacity(50%);
+}
+
+         /*end fon*/
+
 
        .thumb  { float:left; margin: 10px }
        .thumb img  {
+       height: 220px;
        border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
-    padding: 0px /*5px;  Расстояние от картинки до рамки */
-  /* background: #DEB887    #666;  Цвет фона */
+       padding: 10px; /* Расстояние от картинки до рамки */
+       background:  white; /*#666; *Цвет фона */
+       margin-right: 10px; /* Отступ справа */
+       margin-bottom: 10px; /* Отступ снизу */
+       object-fit: cover;
+       }
 
-    margin-right: 10px; /* Отступ справа */
-    margin-bottom: 10px; /* Отступ снизу */
-    object-fit: cover;
-}
+
 .thumb:hover img  {
     border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
     }
@@ -27,11 +59,28 @@
   </style>
  </head>
  <body>
+ <h1 align="center">БАРДЫ SCO</h1>
+ <a href="mailto:bards@tejblum.pp.ru">Контакты:bards@tejblum.pp.ru</a>
+ <pre> <p></p></pre>
+ <!-- Yandex.Metrika counter -->
+{% for c1 in comp1 %}
+ <a  href="{%url 'sco' %}">
+
+    <div class="thumb1">
+      <p>Что такое SCO?</p>
+        <img src="{{ c1.photo.url }}">
+      </div>
+    </a>
+{% endfor %}
+ <pre> <p></p></pre>
+
 
 {% for c in comp %}
 <a  href="{% url 'fonp' c.pk %}">
            <div class="thumb">
+               <div class="px_l">
                <p>{{c.name_composer}} {{c.fam_composer}}</p>
+               </div>
                <img src="{{ c.photo.url }}"  width="189"  height="255">
            </div>
 </a>
