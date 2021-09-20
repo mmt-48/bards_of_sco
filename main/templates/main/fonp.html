@@ -126,20 +126,20 @@
 
 
 {% block neodnoisp %}
-
+<pre> <p>  </p> </pre>
   {% for ar in art %}
    {% if e.artist_id_id == ar.pk %}
 
-    <div class="thumb">
-         <div class="px_l" >
-            <p> исполнение </p>
-          </div>
-        {% if "1" in ar.name_artist %}
+    <div class="thumb1">
+       <div class="px_l" >
+         <p> исполнение </p>
+        </div>
+       {% if "1" in ar.name_artist %}
          <div class="px_l" >
            <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
          </div>
-          <img src="{{ar.photo.url}}" width="255" >
-        {%else%}
+         <img src="{{ar.photo.url}}" width="255" >
+       {%else%}
          <div class="px_l" >
            <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
           </div>
@@ -149,7 +149,7 @@
    {% endif %}
  {% endfor %}
 
-      <div class="thumb">
+      <div class="thumb1">
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >

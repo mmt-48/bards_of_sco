@@ -112,7 +112,7 @@
        <p> исполнение </p>
         {% if "1" in ar.name_artist %}
         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-       <img src="{{ar.photo.url}}" width="255" >
+        <img src="{{ar.photo.url}}" width="255" >
         {%else%}
 
        <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
