@@ -7,72 +7,62 @@
    {% if e.artist_id_id == ar.pk %}
 
     <div class="thumb" >
-     {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist %}
-      {% if c.name_composer == a.name_avtor_text  and c.name_composer == ar.name_artist  %}
-        <div class="px_l" >
-         <p> музыка, слова и исполнение </p>
-        </div>
-        {%endif%}
-      {%endif%}
 
-      {% if c.fam_composer == a.fam_avtor_text and  c.name_composer == a.name_avtor_text %}
-       {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
-         <div class="px_l" >
+    {% if c.fam_composer == a.fam_avtor_text  and c.fam_composer == ar.fam_artist %}
+        {% if c.name_composer == a.name_avtor_text  and c.name_composer == ar.name_artist  %}
+          <div class="px_l">
+         <p> музыка, слова и исполнение </p>
+              </div>
+        {%endif%}
+    {%endif%}
+
+    {% if c.fam_composer == a.fam_avtor_text and  c.name_composer == a.name_avtor_text %}
+        {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
+          <div class="px_l">
           <p> музыка и слова </p>
-         </div>
+              </div>
        {%endif%}
-      {%endif%}
+    {%endif%}
 
     {%if c.fam_composer != a.fam_avtor_text or  c.name_composer != a.name_avtor_text %}
         {% if c.fam_composer == ar.fam_artist  and c.name_composer == ar.name_artist  %}
-         <div class="px_l" >
+          <div class="px_l">
       <p> музыка и исполнение </p>
-             </div>
+              </div>
          {%endif%}
     {%endif%}
 
     {%if c.fam_composer != a.fam_avtor_text or c.name_composer != a.name_avtor_text %}
       {%if  c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
-         <div class="px_l" >
+          <div class="px_l">
       <p> музыка </p>
-             </div>
+              </div>
         {%endif%}
     {%endif%}
- <div class="px_l" >
+  <div class="px_l">
      <p> {{c.name_composer}} {{c.fam_composer}}</p>
-     </div>
+      </div>
      <img src="{{c.photo.url }}" width="189">
 
     </div>
 
-     {% for c2 in comp1 %}
-      {% if s.comp1_id_id == c2.pk %}
-       <div class="thumb">
-            <div class="px_l" >
-        <p> музыка при участии </p>
-                </div>
-        <p> {{c2.name_composer}} {{c2.fam_composer}}</p>
-        <img src="{{c2.photo.url }}" width="189">
-       </div>
-      {% endif %}
-     {% endfor %}
 
     {%if c.fam_composer != a.fam_avtor_text or c.name_composer != a.name_avtor_text %}
       <div class="thumb">
           {%if a.fam_avtor_text == ar.fam_artist and a.name_avtor_text == ar.name_artist  %}
-           <div class="px_l" >
-            <p> слова и исполнение</p>
-           </div>
+            <div class="px_l">
+       <p> слова и исполнение</p>
+                </div>
           {%endif%}
           {%if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist   %}
-           <div class="px_l" >
-             <p> слова </p>
-           </div>
+            <div class="px_l">
+       <p> слова </p>
+                </div>
           {%endif%}
-           <div class="px_l" >
-             <p>{{a.name_avtor_text}} {{a.fam_avtor_text}}</p>
-           </div>
-           <img src="{{a.photo.url }}" width="189" >
+  <div class="px_l">
+       <p>{{a.name_avtor_text}} {{a.fam_avtor_text}}</p>
+      </div>
+       <img src="{{a.photo.url }}" width="189" >
       </div>
      {%endif%}
 
@@ -81,10 +71,10 @@
     {% for t in trans %}
       {% if s.trans_id_id == t.pk %}
        <div class="thumb">
-            <div class="px_l" >
+             <div class="px_l">
         <p> перевод {{s.language}}</p>
         <p>{{t.name_translator}} {{t.fam_translator}}</p>
-                </div>
+                 </div>
         <img src="{{t.photo.url}}" width="189" >
        </div>
       {% endif %}
@@ -92,21 +82,20 @@
 
     {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
       {%  if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist%}
-       <div class="thumb">
-        <div class="px_l" >
+     <div class="thumb">
+  <div class="px_l">
           <p> исполнение </p>
-         </div>
-
+      </div>
         {% if "1" in ar.name_artist %}
-           <div class="px_l" >
-            <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-           </div>
-           <img src="{{ar.photo.url}}" width="255" >
+           <div class="px_l">
+        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+               </div>
+       <img src="{{ar.photo.url}}" width="255" >
         {%else%}
-          <div class="px_l" >
-            <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-          </div>
-          <img src="{{ar.photo.url}}" width="189" >
+  <div class="px_l">
+       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+      </div>
+       <img src="{{ar.photo.url}}" width="189" >
         {%endif%}
      </div>
     {%endif%}
@@ -126,34 +115,35 @@
 
 
 {% block neodnoisp %}
-<pre> <p>  </p> </pre>
+
   {% for ar in art %}
    {% if e.artist_id_id == ar.pk %}
-
     <div class="thumb1">
-       <div class="px_l" >
-         <p> исполнение </p>
-        </div>
-       {% if "1" in ar.name_artist %}
-         <div class="px_l" >
-           <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-         </div>
-         <img src="{{ar.photo.url}}" width="255" >
-       {%else%}
-         <div class="px_l" >
-           <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-          </div>
-          <img src="{{ar.photo.url}}" width="189">
+    <div class="thumb">
+          <div class="px_l">
+       <p> исполнение </p>
+              </div>
+        {% if "1" in ar.name_artist %}
+          <div class="px_l">
+        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+              </div>
+        <img src="{{ar.photo.url}}" width="255" >
+        {%else%}
+  <div class="px_l">
+       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+      </div>
+       <img src="{{ar.photo.url}}" width="189">
         {%endif%}
      </div>
    {% endif %}
  {% endfor %}
 
-      <div class="thumb1" >
+      <div class="thumb">
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
       </div>
+    </div>
 {%endblock%}
