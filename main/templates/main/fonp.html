@@ -130,7 +130,7 @@
   {% for ar in art %}
    {% if e.artist_id_id == ar.pk %}
 
-    <div class="thumb1" align="left">
+    <div class="thumb1">
        <div class="px_l" >
          <p> исполнение </p>
         </div>
@@ -149,7 +149,7 @@
    {% endif %}
  {% endfor %}
 
-      <div class="thumb1" align="left">
+      <div class="thumb1" >
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
