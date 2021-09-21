@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>ФОН</title>
+        <title>БАРДЫ СКО</title>
       <style>
       .px_l {
   width: 210px;
@@ -15,6 +15,7 @@
   border: 1px solid white;
   font-family: "Goudy Bookletter 1911", sans-serif;
 }
+
 body{
   position: relative;
 
@@ -39,7 +40,7 @@ body::before {
 
          /*end fon*/
 
-
+       .thumb1  { float:left; margin: 10px}
        .thumb  { float:left; margin: 10px }
        .thumb img  {
        height: 220px;
@@ -60,22 +61,45 @@ body::before {
   </style>
  </head>
  <body>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(84813241, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/84813241" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
  <h1 align="center">БАРДЫ SCO</h1>
- <a href="mailto:bards@tejblum.pp.ru">Контакты:bards@tejblum.pp.ru</a>
- <pre> <p></p></pre>
+
+
+
+
  <!-- Yandex.Metrika counter -->
 {% for c1 in comp1 %}
  <a  href="{%url 'sco' %}">
-
     <div class="thumb1">
-      <p>Что такое SCO?</p>
-        <img src="{{ c1.photo.url }}">
+      <p style="background-color: black; color: yellow; width:120px" >Что такое SCO?</p>
+      <img src="{{ c1.photo.url }}">
       </div>
     </a>
+  <div class="thumb1">
+      <pre> <p>                                                          </p></pre>
+  </div>
 {% endfor %}
- <pre> <p></p></pre>
+  <div class="thumb1">
+  <p  href="mailto:bards@tejblum.pp.ru">Контакты: bards@tejblum.pp.ru</p>
+  </div>
 
+      <pre> <p>    </p></pre>
 
+<div class="thumb1">
 {% for c in comp %}
 <a  href="{% url 'fonp' c.pk %}">
            <div class="thumb">
@@ -86,6 +110,7 @@ body::before {
            </div>
 </a>
  {% endfor %}
+</div>
 
 
 
