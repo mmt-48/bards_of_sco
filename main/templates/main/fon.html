@@ -8,6 +8,8 @@
 
         <title>БАРДЫ SCO</title>
       <style>
+
+
       .px_l {
   width: 210px;
   background-color: white;
@@ -41,6 +43,7 @@ body::before {
          /*end fon*/
         .thumb2  { float:left; margin: 10px; width:100%}
        .thumb1  { float:left; margin: 10px}
+       .thumb4 {  margin:0 auto; width:200px}
        .thumb  { float:left; margin: 10px }
        .thumb img  {
        height: 220px;
@@ -112,7 +115,24 @@ body::before {
  {% endfor %}
 </div>
 
+<div class="thumb2">
+      <HR NOSHADE  width="80%" color="Blue"  SIZE="8">                                                        </p></pre>
+</div>
 
+ {% for c1 in comp1 %}
+
+ <a  href="{%url 'fonpg' %}">
+    <div class="thumb4">
+      <div class="thumb">
+        <div class="px_l" >
+          <p>Песни, которые мы любим</p>
+         </div>
+         <img src="{{ c1.fon1.url }}" width="189"  height="189" >
+        </div>
+      </div>
+    </a>
+
+{% endfor %}
 
 </body>
 </html>

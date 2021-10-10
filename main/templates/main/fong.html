@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>БАРДЫ SCO</title>
+      <style>
+      .px_l {
+  width: 210px;
+  background-color: white;
+  color: red;
+  border: 1px solid white;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+}
+
+body{
+  position: relative;
+
+}
+body::before {
+
+    {% for c1 in comp1 %}
+		 background:  url("{{ c1.fon.url }}") no-repeat center center;
+	{% endfor %}
+
+    background-size: cover;
+    content: ' ';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+    filter: opacity(50%);
+}
+
+         /*end fon*/
+        .thumb2  { float:left; margin: 10px; width:100%}
+       .thumb1  { float:left; margin: 10px}
+       .thumb  { float:left; margin: 10px }
+       .thumb img  {
+       height: 220px;
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+       padding: 10px; /* Расстояние от картинки до рамки */
+       background:  white; /*#666; *Цвет фона */
+       margin-right: 10px; /* Отступ справа */
+       margin-bottom: 10px; /* Отступ снизу */
+       object-fit: cover;
+       }
+
+
+.thumb:hover img  {
+    border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+    }
+
+
+  </style>
+ </head>
+ <body>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(84813241, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/84813241" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+ <h1 align="center">БАРДЫ SCO</h1>
+
+
+
+
+ <!-- Yandex.Metrika counter -->
+{% for c1 in comp1 %}
+ <a  href="{%url 'sco' %}">
+    <div class="thumb1">
+      <p style="background-color: black; color: yellow; width:120px" >Что такое SCO?</p>
+      <img src="{{ c1.photo.url }}">
+      </div>
+    </a>
+  <div class="thumb1">
+      <pre> <p>                                                          </p></pre>
+  </div>
+{% endfor %}
+  <div class="thumb1">
+  <p  href="mailto:bards@tejblum.pp.ru">Контакты: bards@tejblum.pp.ru</p>
+  </div>
+
+      <pre> <p>    </p></pre>
+
+<div class="thumb2">
+{% for c in comp %}
+  <a  href="{% url 'fonp' c.pk %}">
+           <div class="thumb">
+               <div class="px_l">
+               <p>{{c.name_composer}} {{c.fam_composer}}</p>
+               </div>
+               <img src="{{ c.photo.url }}"  width="189"  height="255">
+           </div>
+  </a>
+ {% endfor %}
+</div>
+
+<div class="thumb2">
+{% for a in art %}
+  <a  href="{% url 'fonp' c.pk %}">
+           <div class="thumb">
+               <div class="px_l">
+               <p>{{a.name_artist}} {{a.fam_artist}}</p>
+               </div>
+               <img src="{{ a .photo.url }}"  width="189"  height="255">
+           </div>
+  </a>
+ {% endfor %}
+</div>
+
+
+</body>
+</html>

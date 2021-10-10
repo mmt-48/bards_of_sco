@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
  path('', views.fon, name='home'),
  path('sco/', views.sco, name='sco'),
+ path('fonpg/', views.fonpg, name='fonpg'),
  path('index/<int:comp_id>/', views.index, name='index'),
  path('fonp/<int:comp_id>/', views.fonp, name='fonp'),
  path('index02/<int:exec_id>/', views.index02, name='index02')

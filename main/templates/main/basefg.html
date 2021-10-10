@@ -1,0 +1,227 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <title>{{comp.name_composer}} {{comp.fam_composer}}</title>
+
+      <style>
+
+      /* fon */
+      {% if 2 == 1 %}
+      body::before{
+     /* background: #000 url("{%static  'main\img\mont.jpg' %}");  Фоновый цвет и фоновый рисунок*/
+
+		 {% for c in comp %}
+		 background: url("{{ c.background_ph.url }}");
+		 {% endfor %}
+		 /* Принудительно указываем высоту равную 100% от высоты окна браузера */
+         /*min-height:100%;*/
+         /*min-width:100%;*/
+         background-attachment: fixed; /* Фон страницы фиксируется */
+         /* Магия */
+         background-size:cover;
+         /*filter: blur(2px);*/
+                    }
+{% endif %}
+
+.px_l {
+  width: 210px;
+  background-color: white;
+  color: red;
+  border: 1px solid white;
+}
+body{
+  position: relative;
+
+}
+body::before {
+
+    {% for c in comp %}
+		 background:  url("{{ c.background_ph.url }}") no-repeat center center;
+	{% endfor %}
+    /*background: url("{%static  'main\img\гит1.jpg' %}"); /* Фоновый цвет и фоновый рисунок*/
+    background-size: cover;
+    content: ' ';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+    filter: opacity(50%);
+}
+
+         /*end fon*/
+      audio {
+      width:255px;
+      }
+        p {
+        margin-top: 0.1em; /* Отступ сверху */
+       margin-bottom: 0.1em; /* Отступ снизу */
+      }
+      .thumb1  { float:left; margin: 10px;width: 100% }
+      .thumbb  { float:left; margin: 10px; width: 100% }
+      .thumb  { float:left; margin: 10px  }
+      .thumb img {
+       height: 220px;
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+       padding: 10px; /* Расстояние от картинки до рамки */
+       background:  white; /*#666; *Цвет фона */
+       margin-right: 10px; /* Отступ справа */
+       margin-bottom: 10px; /* Отступ снизу */
+       object-fit: cover;
+         }
+      .thumb1 img  {
+       height: 220px;
+       border: 2px solid #55c5e9; /* Рамка вокруг фотографии */
+       padding: 10px; /* Расстояние от картинки до рамки */
+       background: white; /*#666;  Цвет фона */
+       margin-right: 10px; /* Отступ справа */
+       margin-bottom: 10px; /* Отступ снизу */
+       object-fit: cover;
+         }
+        .thumb:hover img {
+        border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+           }
+         .thumb1:hover img  {
+           border: 2px solid #f26522; /* Рамка при наведении на ссылку курсора мыши */
+           }
+      .text {
+    text-align:  center;
+   }
+
+    body::before {
+    content: '';
+    position: fixed; /* Фиксируем на одном месте */
+    left: 0; right: 0; /* Вся ширин */
+    top: 0; bottom: 0; /* Вся высота */
+    z-index: -1; /* Фон ниже текста */
+    /* Параметры фона */
+
+    /*filter: blur(10px);  Размытие */
+   }
+   body {
+    color: red; /* Цвет текста */
+
+   }
+.macmenu {
+ height: 400px; /*высота общего блока*/
+}
+.button2 {display: block;
+ float: left;
+ width: 1500px;
+ height: 50px}
+
+.button1 {display: block;
+ float: left;
+ width: 1500px;
+ height: 350px}
+
+.button {
+ margin: 0 auto; /*выравнивание блока по центру*/
+ width: 1200px; /*ширина всего блока с меню*/
+}
+
+
+.button1  a img,
+.button1  a {
+ display: block;
+ float: left;
+ object-fit: cover;
+ height: 300px;
+ width: 200px;
+}
+.button a {
+ margin: 5px 15px;
+ text-align: left;
+ color: red;
+ font: normal normal 30px Verdana;
+ text-decoration: none;
+ word-wrap: normal; /*запрещает автоматически разрывать слова на перенос*/
+}
+
+.button a:hover {
+ font: normal bold 30px Verdana;
+}
+
+  </style>
+
+</head>
+<body>
+<script>
+var a=document.getElementsByTagName("audio");
+
+function other_pause(b){
+    for(i=0;i<a.length;i++){
+        if(!(i==b)){a[i].pause()};
+    }
+}
+
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(84813241, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/84813241" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<h1 align="center"><span style="background-color: white; color: Red">{{pn}}</span></h1>
+ {% for e in exe %}
+  {% for s in son %}
+   {% if e.song_id_id == s.pk %}
+    {%if e.workfield1 == 1%}
+      <div class="thumbb">
+       <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
+        {% if "1" in s.name_song %}
+          <h1 align="center" ><span style="background-color: white; color: Red"> {{s.name_song|slice:"1:"}}  </span></h1>
+        {% else %}
+          <h1 align="center" ><span style="background-color: white; color: Red"> {{s.name_song}}</span> </h1>
+        {% endif %}
+       </div>
+
+
+    {% endif %}
+    {% for c in comp %}
+    {% if s.comp_id_id == c.pk %}
+      {% for a in avt %}
+        {% if s.avt_id_id == a.pk %}
+
+         {%if s.workfield == 1 or  e.workfield1 == 1%}
+           {%block odnoisp%}
+           {%endblock%}
+         {%else%}
+
+           {%block neodnoisp%}
+
+           {%endblock%}
+         {%endif%}
+        {% endif%}
+       {%endfor%}
+      {%endif%}
+     {%endfor%}
+ <div class="button2">
+
+ </div>
+    {%endif%}
+  {%endfor%}
+ {%endfor%}
+
+</body>
+</html>

@@ -11,6 +11,7 @@ from django.conf import settings
 
 
 def index(request, comp_id):
+
     son = Song.objects.filter(comp_id=comp_id)
 
     exe = Execution.objects.filter(workfield2=comp_id).order_by('workfield')
@@ -54,6 +55,7 @@ def index(request, comp_id):
 
 
 def fonp(request, comp_id):
+
     son = Song.objects.filter(comp_id=comp_id)
 
     exe = Execution.objects.filter(workfield2=comp_id).order_by('workfield')
@@ -96,11 +98,50 @@ def fonp(request, comp_id):
     return render(request, 'main/fonp.html', context=context)
 
 
+def fonpg(request):
+
+    son = Song.objects.filter()
+
+    exe = Execution.objects.filter(sco=0).order_by('workfield')
+
+    u = 0
+    i = 0
+    for e in exe:
+        e.workfield3 = i
+        i = i + 1
+        e.workfield1 = 1
+        if u == e.song_id_id:
+            e.workfield1 = 2
+        u = e.song_id_id
+
+    comp = Composer.objects.filter()
+
+    comp1 = Composer1.objects.filter()
+
+    avt = Avtor_text.objects.all
+
+    art = Artist.objects.all
+
+    trans = Translator.objects.all
+
+    context = {
+        'comp': comp,
+        'comp1': comp1,
+        'avt': avt,
+        'trans': trans,
+        'art': art,
+        'son': son,
+        'exe': exe,
+                }
+
+    return render(request, 'main/fonpg.html', context=context)
+
+
 def index01(request):
 
-    #indexx()
+    indexx()
 
-    comp = Composer.objects.filter().order_by('orderr')
+    comp = Composer.objects.filter(sco=1).order_by('orderr')
 
     comp1 = Composer1.objects.filter()
 
@@ -114,7 +155,9 @@ def index01(request):
 
 def fon(request):
 
-    comp = Composer.objects.filter().order_by('orderr')
+    indexx()
+
+    comp = Composer.objects.filter(sco=1).order_by('orderr')
 
     comp1 = Composer1.objects.filter()
 
@@ -156,6 +199,7 @@ def indexx():
                 a = Artist.objects.get(pk=e.artist_id_id)
                 dd = c.fam_composer[:30]+str(s.name_song)[:40]
                 e.workfield = dd + '9'
+                e.sco = cc.sco
                 if c.fam_composer.strip() == a.fam_artist.strip() and c.name_composer.strip() == a.name_artist.strip():
                     e.workfield = dd+'0'
 

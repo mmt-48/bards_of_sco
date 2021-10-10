@@ -6,8 +6,9 @@ class Composer(models.Model):
     name_composer = models.CharField(max_length=200, db_index=True)
     fam_composer = models.CharField(max_length=200, db_index=True, default='')
     photo = models.ImageField(upload_to='composer', default='')
-    orderr = models.CharField(max_length=3,default='')
-    background_ph = models.ImageField(upload_to='composer', default='')
+    orderr = models.CharField(max_length=3, default='',blank=True, null=True)
+    background_ph = models.ImageField(upload_to='composer', default='',blank=True, null=True)
+    sco = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
         return self.name_composer+self.fam_composer
@@ -56,6 +57,7 @@ class Artist(models.Model):
     name_artist = models.CharField(max_length=200, db_index=True)
     fam_artist = models.CharField(max_length=200, db_index=True, default='')
     photo = models.ImageField(upload_to='artist', default='')
+    sco = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
         return self.name_artist+self.fam_artist
@@ -75,7 +77,7 @@ class Song(models.Model):
     trans_id = models.ForeignKey('translator', on_delete=models.PROTECT, blank=True, null=True, db_index=True)
     name_song = models.CharField(max_length=200, db_index=True)
     workfield = models.IntegerField(blank=True, null=True, default=0)
-    language = models.CharField(max_length=20, default='',blank=True, null=True)
+    language = models.CharField(max_length=20, default='', blank=True, null=True)
 
     def __str__(self):
         return self.name_song
@@ -97,6 +99,7 @@ class Execution(models.Model):
     workfield1 = models.IntegerField(blank=True, null=True)
     workfield2 = models.IntegerField(blank=True, null=True)
     workfield3 = models.IntegerField(blank=True, null=True)
+    sco = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
         return self.note
@@ -114,6 +117,7 @@ class Composer1(models.Model):
     fam_composer = models.CharField(max_length=200, db_index=True, default='')
     photo = models.ImageField(upload_to='composer', default='')
     fon = models.ImageField(upload_to='composer', default='')
+    fon1 = models.ImageField(upload_to='composer', default='')
 
     def __str__(self):
         return self.fam_composer
