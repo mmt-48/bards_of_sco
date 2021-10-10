@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-    <title>{{comp.name_composer}} {{comp.fam_composer}}</title>
+    <title>НАШИ ПЕСНИ</title>
 
       <style>
 
@@ -42,11 +42,11 @@ body{
 
 }
 body::before {
+    {% for c1 in comp1 %}
+		 background:  url("{{ c1.fon1.url }}") no-repeat center center;
+   {% endfor %}
 
-    {% for c in comp %}
-		 background:  url("{{ c.background_ph.url }}") no-repeat center center;
-	{% endfor %}
-    /*background: url("{%static  'main\img\гит1.jpg' %}"); /* Фоновый цвет и фоновый рисунок*/
+
     background-size: cover;
     content: ' ';
     height: 100%;
@@ -182,7 +182,7 @@ function other_pause(b){
 <noscript><div><img src="https://mc.yandex.ru/watch/84813241" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-<h1 align="center"><span style="background-color: white; color: Red">{{pn}}</span></h1>
+
  {% for e in exe %}
   {% for s in son %}
    {% if e.song_id_id == s.pk %}
@@ -192,14 +192,13 @@ function other_pause(b){
         {% if "1" in s.name_song %}
           <h1 align="center" ><span style="background-color: white; color: Red"> {{s.name_song|slice:"1:"}}  </span></h1>
         {% else %}
-          <h1 align="center" ><span style="background-color: white; color: Red"> {{s.name_song}}</span> </h1>
+          <h1 align="center" ><span style=" background-color: white; color: Red"> {{s.name_song}}</span> </h1>
         {% endif %}
        </div>
-
-
     {% endif %}
+
     {% for c in comp %}
-    {% if s.comp_id_id == c.pk %}
+     {% if s.comp_id_id == c.pk %}
       {% for a in avt %}
         {% if s.avt_id_id == a.pk %}
 
