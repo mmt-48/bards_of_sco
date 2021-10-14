@@ -139,7 +139,7 @@ def fonpg(request):
 
 def index01(request):
 
-    indexx()
+    #indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -155,7 +155,7 @@ def index01(request):
 
 def fon(request):
 
-    indexx()
+    #indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
