@@ -11,7 +11,7 @@ class Composer(models.Model):
     sco = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
-        return self.name_composer+self.fam_composer
+        return self.name_composer+' '+self.fam_composer
 
     class Meta:
         verbose_name = 'composer'
@@ -27,7 +27,7 @@ class Avtor_text(models.Model):
     photo = models.ImageField(upload_to='avtor', default='')
 
     def __str__(self):
-        return self.name_avtor_text+self.fam_avtor_text
+        return self.name_avtor_text+' '+self.fam_avtor_text
 
     class Meta:
         verbose_name = 'avtor_text'
@@ -60,7 +60,7 @@ class Artist(models.Model):
     sco = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
-        return self.name_artist+self.fam_artist
+        return self.name_artist+' '+self.fam_artist
 
     class Meta:
         verbose_name = 'artist'
@@ -100,6 +100,7 @@ class Execution(models.Model):
     workfield2 = models.IntegerField(blank=True, null=True)
     workfield3 = models.IntegerField(blank=True, null=True)
     sco = models.IntegerField(blank=True, null=True, default=0)
+    vid = models.CharField(max_length=400, blank=True,null=True)
 
     def __str__(self):
         return self.note

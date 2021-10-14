@@ -139,7 +139,7 @@ def fonpg(request):
 
 def index01(request):
 
-    #indexx()
+    indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -155,7 +155,7 @@ def index01(request):
 
 def fon(request):
 
-    #indexx()
+    indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -172,8 +172,11 @@ def fon(request):
 def index02(request, exec_id):
 
     exe = Execution.objects.get(pk=exec_id)
+    son = Song.objects.filter(name_song=exe.song_id)
+
     context = {
-        'exe': exe,
+         'son': son,
+         'exe': exe,
                }
 
     return render(request, 'main/index02.html', context=context)

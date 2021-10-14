@@ -91,6 +91,12 @@
     {%endif%}
 
      <div class="thumb">
+            {% if '<' in e.vid %}
+          <form action="{%url 'index02' e.pk %}" target="_blank">
+   <button>Переход по ссылке</button>
+  </form>
+
+             {%endif%}
        <pre> <p>  </p> </pre>
         <audio controls  onplay="other_pause({{e.workfield3}})">
         <source src="{{e.audio_file.url}}" >
@@ -123,6 +129,12 @@
  {% endfor %}
 
       <div class="thumb">
+              {% if '<' in e.vid %}
+          <form action="{%url 'index02' e.pk %}" target="_blank">
+   <button>Переход по ссылке</button>
+  </form>
+
+             {%endif%}
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >

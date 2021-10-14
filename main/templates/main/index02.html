@@ -8,22 +8,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <title>Видео исполнения</title>
 
-
-    <title>БАРДЫ - ДЕТЯМ</title>
-
-
-        <title>БАРДЫ - ДЕТЯМ</title>
 
 </head>
 <body>
 
- <h1 align="center">jhjkhkhkh</h1>
+ <h1 align="center">{{exe.song_id}} исп. {{exe.artist_id}}</h1>
+ {% for s in son%}
 
- <audio controls>
-         <source src="{{exe.audio_file.url}}" >
-         <p> href="{{exe.audio_file.url}}">Скачайте музыку</p>
-        </audio>
+ <h1 align="center">муз. {{s.comp_id}} слова {{s.avt_id}}</h1>
+{{%endfor%}
+ <div >
+     <iframe width="560" height="315" src="{{ exe.vid  }}"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+     picture-in-picture" allowfullscreen>
+
+     </iframe>
+
+
+</div>
 
 
 

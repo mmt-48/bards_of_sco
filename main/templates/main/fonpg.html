@@ -101,7 +101,14 @@
     {%endif%}
     {%endif%}
 
+
+
      <div class="thumb">
+      {% if 'h' in e.vid %}
+         <form action="{%url 'index02' e.pk %}" >
+          <button>Видео</button>
+         </form>
+      {%endif%}
        <pre> <p>  </p> </pre>
         <audio controls  onplay="other_pause({{e.workfield3}})">
         <source src="{{e.audio_file.url}}" >
@@ -139,7 +146,13 @@
  {% endfor %}
 
       <div class="thumb">
-       <pre> <p>  </p> </pre>
+       {% if 'h' in e.vid %}
+         <form action="{%url 'index02' e.pk %}" >
+         <button>Видео</button>
+        </form>
+       {%endif%}
+<pre> <p>  </p> </pre>
+
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
