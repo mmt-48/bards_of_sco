@@ -200,7 +200,7 @@ def indexx():
             if cc.pk == c.pk:
                 e.workfield2 = c.pk
                 a = Artist.objects.get(pk=e.artist_id_id)
-                dd = c.fam_composer[:30]+str(s.name_song)[:40]
+                dd = c.fam_composer[:20]+c.name_composer[:15]+str(s.name_song)[:40]
                 e.workfield = dd + '9'
                 e.sco = cc.sco
                 if c.fam_composer.strip() == a.fam_artist.strip() and c.name_composer.strip() == a.name_artist.strip():
