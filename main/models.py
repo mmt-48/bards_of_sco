@@ -101,6 +101,7 @@ class Execution(models.Model):
     workfield3 = models.IntegerField(blank=True, null=True)
     sco = models.IntegerField(blank=True, null=True, default=0)
     vid = models.CharField(max_length=400, blank=True,null=True)
+    note1 = models.CharField(max_length=200,blank=True, null=True)
 
     def __str__(self):
         return self.note

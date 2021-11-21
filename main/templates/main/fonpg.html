@@ -114,6 +114,11 @@
         <source src="{{e.audio_file.url}}" >
         <a href="{{e.audio_file.url}}">Скачайте музыку</a>
        </audio>
+          {% if e.note1 %}
+         <pre> <p>  </p> </pre>
+        <p> {{e.note1}}</p>
+           {%endif%}
+
       </div>
    {%endif%}
   {%endfor%}
@@ -157,6 +162,10 @@
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
+           {% if e.note1 %}
+          <pre> <p>  </p> </pre>
+        <p> {{e.note1}}</p>
+           {%endif%}
       </div>
     </div>
 {%endblock%}
