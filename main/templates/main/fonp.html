@@ -111,7 +111,12 @@
         <audio controls  onplay="other_pause({{e.workfield3}})">
         <source src="{{e.audio_file.url}}" >
         <a href="{{e.audio_file.url}}">Скачайте музыку</a>
+
        </audio>
+          {% if e.note1 %}
+          <pre> <p>  </p> </pre>
+        <p> {{e.note1}}</p>
+             {%endif%}
       </div>
    {%endif%}
   {%endfor%}
@@ -153,7 +158,12 @@
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
+
         </audio>
+           {% if e.note1 %}
+          <pre> <p>  </p> </pre>
+        <p> {{e.note1}}</p>
+             {%endif%}
       </div>
     </div>
 {%endblock%}
