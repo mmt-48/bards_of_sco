@@ -66,8 +66,6 @@
       </div>
      {%endif%}
 
-
-
     {% for t in trans %}
       {% if s.trans_id_id == t.pk %}
        <div class="thumb">
@@ -81,24 +79,31 @@
      {% endfor %}
 
     {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
-      {%  if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist%}
-     <div class="thumb">
-  <div class="px_l">
+     {%  if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist%}
+      <div class="thumb">
+       {% if "1" in ar.name_artist %}
+        <div class="px_l1">
           <p> исполнение </p>
-      </div>
-        {% if "1" in ar.name_artist %}
-           <div class="px_l">
-        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-               </div>
-       <img src="{{ar.photo.url}}" width="255" >
+         </div>
         {%else%}
-  <div class="px_l">
-       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-      </div>
-       <img src="{{ar.photo.url}}" width="189" >
-        {%endif%}
+         <div class="px_l">
+          <p> исполнение </p>
+         </div>
+         {%endif%}
+
+       {% if "1" in ar.name_artist %}
+        <div class="px_l1">
+         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+        </div>
+        <img src="{{ar.photo.url}}" width="255" >
+       {%else%}
+        <div class="px_l">
+         <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+        </div>
+        <img src="{{ar.photo.url}}" width="189" >
+       {%endif%}
      </div>
-    {%endif%}
+     {%endif%}
     {%endif%}
 
      <div class="thumb">
@@ -129,31 +134,39 @@
   {% for ar in art %}
    {% if e.artist_id_id == ar.pk %}
     <div class="thumb1">
-    <div class="thumb">
-          <div class="px_l">
-       <p> исполнение </p>
-              </div>
-        {% if "1" in ar.name_artist %}
-          <div class="px_l">
-        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-              </div>
-        <img src="{{ar.photo.url}}" width="255" >
-        {%else%}
-  <div class="px_l">
-       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-      </div>
-       <img src="{{ar.photo.url}}" width="189">
-        {%endif%}
-     </div>
-   {% endif %}
- {% endfor %}
+     <div class="thumb">
+      {% if "1" in ar.name_artist %}
+       <div class="px_l1">
+        <p> исполнение </p>
+       </div>
+      {%else%}
+       <div class="px_l">
+        <p> исполнение </p>
+       </div>
+      {%endif%}
 
-      <div class="thumb">
-        {% if 'h' in e.vid %}
-         <form action="{%url 'index02' e.pk %}">
-          <button>Видео</button>
-          </form>
-         {%endif%}
+
+      {% if "1" in ar.name_artist %}
+       <div class="px_l1">
+        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+       </div>
+        <img src="{{ar.photo.url}}" width="255" >
+       {%else%}
+        <div class="px_l">
+         <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+        </div>
+        <img src="{{ar.photo.url}}" width="189">
+       {%endif%}
+      </div>
+     {% endif %}
+    {% endfor %}
+
+     <div class="thumb">
+      {% if 'h' in e.vid %}
+       <form action="{%url 'index02' e.pk %}">
+         <button>Видео</button>
+        </form>
+       {%endif%}
        <pre> <p>  </p> </pre>
        <audio controls onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
