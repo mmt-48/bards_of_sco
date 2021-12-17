@@ -98,6 +98,50 @@ def fonp(request, comp_id):
     return render(request, 'main/fonp.html', context=context)
 
 
+def poart(request, art_id):
+
+    son = Song.objects.filter()
+
+    exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
+
+    u = 0
+    i = 0
+    for e in exe:
+        e.workfield3 = i
+        i = i + 1
+        e.workfield1 = 1
+        if u == e.song_id_id:
+            e.workfield1 = 2
+        u = e.song_id_id
+
+    uu = Artist.objects.get(pk=art_id)
+
+    pn = uu.name_artist + ' ' + uu.fam_artist
+
+    comp = Composer.objects.filter()
+
+    comp1 = Composer1.objects.filter()
+
+    avt = Avtor_text.objects.all
+
+    art = Artist.objects.filter(pk=art_id)
+
+    trans = Translator.objects.all
+
+    context = {
+        'comp': comp,
+        'comp1': comp1,
+        'avt': avt,
+        'trans': trans,
+        'art': art,
+        'son': son,
+        'exe': exe,
+        'pn': pn
+        }
+
+    return render(request, 'main/poart.html', context=context)
+
+
 def fonpg(request):
 
     son = Song.objects.filter()
@@ -161,8 +205,11 @@ def fon(request):
 
     comp1 = Composer1.objects.filter()
 
+    art = Artist.objects.filter(sco=2)
+
     context = {
         'comp': comp,
+        'art': art,
         'comp1': comp1
          }
 
@@ -183,6 +230,11 @@ def index02(request, exec_id):
 
 
 def indexx():
+    arr = Artist.objects.filter()
+    for a in arr:
+        a.sco = 0
+        a.save()
+
 
     son = Song.objects.filter()
     for s in son:
@@ -205,6 +257,10 @@ def indexx():
                 e.sco = cc.sco
                 if c.fam_composer.strip() == a.fam_artist.strip() and c.name_composer.strip() == a.name_artist.strip():
                     e.workfield = dd+'0'
+                else:
+                    if c.sco != 1:
+                        a.sco = 2
+                        a.save()
 
                 e.save()
                 s.workfield = s.workfield + 1
