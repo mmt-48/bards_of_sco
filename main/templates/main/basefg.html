@@ -192,7 +192,11 @@ function other_pause(b){
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/84813241" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
+{% if "1" in pn %}
+ <h1 align="center"><span style="background-color: white; color: Red">{{pn|slice:"1:"}}</span></h1>
+{%else%}
+ <h1 align="center"><span style="background-color: white; color: Red">{{pn}}</span></h1>
+{%endif%}
 
  {% for e in exe %}
   {% for s in son %}
@@ -214,8 +218,11 @@ function other_pause(b){
         {% if s.avt_id_id == a.pk %}
 
          {%if s.workfield == 1 or  e.workfield1 == 1%}
+
+
            {%block odnoisp%}
            {%endblock%}
+
          {%else%}
 
            {%block neodnoisp%}
