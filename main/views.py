@@ -6,6 +6,8 @@ from .models import Artist
 from .models import Translator
 from .models import Song
 from .models import Execution
+import socket
+
 from .models import Cvisit
 from django.conf import settings
 
@@ -182,8 +184,8 @@ def fonpg(request):
 
 
 def index01(request):
-
-    #indexx()
+    if "DESKTOP" in socket.gethostname():
+        indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -199,7 +201,8 @@ def index01(request):
 
 def fon(request):
 
-    #indexx()
+    if "DESKTOP" in socket.gethostname():
+        indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
