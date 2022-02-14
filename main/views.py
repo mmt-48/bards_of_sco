@@ -220,11 +220,12 @@ def fon(request):
 
 
 def index02(request, exec_id):
-
+    avt = Avtor_text.objects.all
     exe = Execution.objects.get(pk=exec_id)
     son = Song.objects.filter(name_song=exe.song_id)
 
     context = {
+         'avt': avt,
          'son': son,
          'exe': exe,
                }
