@@ -128,7 +128,7 @@
          </form>
        {%endif%}
        <pre> <p>  </p> </pre>
-       <audio controls  onplay="other_pause({{e.workfield3}})">
+       <audio controls  onended="plpl({{e.workfield3}})" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
        </audio>
@@ -182,7 +182,7 @@
         </form>
        {%endif%}
        <pre> <p>  </p> </pre>
-       <audio controls onplay="other_pause({{e.workfield3}})">
+       <audio controls onended="plpl({{e.workfield3}})" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>

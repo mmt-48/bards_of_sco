@@ -13,7 +13,7 @@
        <img src="{{c.photo.url }}" width="189"  height="255">
 
 
-      <audio controls onplay="other_pause({{e.workfield3}})">
+      <audio controls onended="plpl()" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
@@ -38,7 +38,7 @@
 
       <p> исполнение {{ar.name_artist}} {{ar.fam_artist}}</p>
       <img src="{{ar.photo.url}} " width="189"  height="255">
-       <audio controls onplay="other_pause({{e.workfield3}})">
+       <audio controls onended="plpl()" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <p> href="{{e.audio_file.url}}">Скачайте музыку</p>
         </audio>
@@ -75,7 +75,7 @@
 
       <p> исполнение {{c.name_composer}} {{c.fam_composer}}</p>
       <img src="{{ar.photo.url}}" width="189"  height="255">
-         <audio controls onplay="other_pause({{e.workfield3}})">
+         <audio controls onended="plpl()" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
@@ -112,7 +112,7 @@
 
       <p> исполнение {{ar.name_artist}} {{ar.fam_artist}}</p>
       <img src="{{ar.photo.url}}" width="189"  height="255">
-       <audio controls onplay="other_pause({{e.workfield3}})">
+       <audio controls onended="plpl()" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <p> href="{{e.audio_file.url}}">Скачайте музыку</p>
         </audio>
@@ -182,7 +182,7 @@
 
      <p> исполнение {{ar.name_artist}} {{ar.fam_artist}} </p>
      <img src="{{ar.photo.url}}"  width="189"  height="255">
-      <audio controls onplay="other_pause({{e.workfield3}})">
+      <audio controls onended="plpl()" onplay="other_pause({{e.workfield3}})">
          <source src="{{e.audio_file.url}}" >
          <a href="{{e.audio_file.url}}">Скачайте музыку</a>
         </audio>
