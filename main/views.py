@@ -104,13 +104,14 @@ def poart(request, art_id):
 
     art = Artist.objects.filter(pk=art_id)
     for a in art:
-        t = a.mind
+        t = a.fam_artist[0]
         pn = a.name_artist + ' ' + a.fam_artist
 
     son = Song.objects.filter()
 
-    if t == 1:
-        exe = Execution.objects.filter(mind=1).order_by('workfield')
+    if t == "1":
+        exe = Execution.objects.filter(note__contains="1").order_by('workfield')
+
     else:
         exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
 
@@ -131,8 +132,8 @@ def poart(request, art_id):
 
     avt = Avtor_text.objects.all
 
-    if t == 1:
-        art = Artist.objects.filter(mind__gt=0)
+    if t == "1":
+        art = Artist.objects.filter()
     else:
         art = Artist.objects.filter(pk=art_id)
 
@@ -252,11 +253,11 @@ def indexx():
 
         a = Artist.objects.get(pk=e.artist_id_id)
 
-        e.mind = a.mind
-        if e.mind > 0:
-            e.mind = 1
-            e.save()
+        ll = a.fam_artist[0]
 
+        if ll in "12" and not ("1" in e.note):
+            e.note = '1'+e.note
+            e.save()
 
     son = Song.objects.filter()
     for s in son:
