@@ -89,9 +89,93 @@ body::before {
  <h1 align="center">БАРДЫ SCO</h1>
 
  <!-- Yandex.Metrika counter -->
- <div class="thumb2">
-  <h1 align="center">ПРОСИМ ИЗВИНИТЬ! САЙТ НАХОДИТСЯ НА РЕКОНСТРУКЦИИ.</h1>
+{% for c1 in comp1 %}
+ <a  href="{%url 'sco' %}">
+    <div class="thumb1">
+      <p style="background-color: black; color: yellow; width:120px" >Что такое SCO?</p>
+      <img src="{{ c1.photo.url }}">
+      </div>
+    </a>
+  <div class="thumb1">
+      <pre> <p>    </p> </pre>
+  </div>
+{% endfor %}
+  <div class="thumb1">
+  <p> <a href="mailto:bards@tejblum.pp.ru">Контакты: bards@tejblum.pp.ru </a></p>
+  </div>
 
+      <pre> <p>    </p></pre>
+
+<div class="thumb2">
+ {% for c in comp %}
+   <a  href="{% url 'fonp' c.pk %}">
+           <div class="thumb">
+               <div class="px_l">
+                <p>{{c.name_composer}} {{c.fam_composer}}</p>
+               </div>
+               <img src="{{ c.photo.url }}"  width="189"  height="255">
+           </div>
+   </a>
+ {% endfor %}
+</div>
+
+<div class="thumb2">
+      <HR NOSHADE  width="80%" color="Blue"  SIZE="8">                                                        </p></pre>
+</div>
+{%if 2 == 1 %}
+ {% for c1 in comp1 %}
+
+   <a  href="{%url 'fonpg' %}">
+    <div class="thumb4">
+      <div class="thumb">
+        <div class="px_l" >
+          <p>Песни, которые мы любим</p>
+        </div>
+        <img src="{{ c1.fon1.url }}" width="189"  height="189" >
+      </div>
+    </div>
+   </a>
+
+{% endfor %}
+
+{%endif%}
+{% for e in exe %}
+  <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
+  <p>{{e.note}} </p>
+  {%endfor%}
+  {% for ar in art %}
+    <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+  {%endfor%}
+ <div class="thumb2">
+  <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
+
+   {% for ar in art %}
+     {% if "2" not in ar.fam_artist %}
+     <a  href="{% url 'poart' ar.pk %}">
+     <div class="thumb">
+      {% if "1" in ar.name_artist %}
+       <div class="px_l1">
+        {% if "1" in ar.fam_artist %}
+          <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist|slice:"1:"}}</p>
+         {%else%}
+           <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+         {%endif%}
+       </div>
+       <img src="{{ ar.photo.url }}"  width="255"  height="255">
+     {%else%}
+      <div class="px_l">
+           {% if "1" in ar.fam_artist %}
+        <p>{{ar.name_artist}} {{ar.fam_artist|slice:"1:"}}</p>
+         {%else%}
+          <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+           {%endif%}
+      </div>
+      <img src="{{ ar.photo.url }}"  width="189"  height="255">
+    {%endif%}
+     </div>
+      </a>
+     {%endif%}
+   {%endfor%}
 
  </div>
 
