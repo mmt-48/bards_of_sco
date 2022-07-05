@@ -139,7 +139,9 @@ body::before {
 {% endfor %}
 
 {%endif%}
-
+{% for e in exe %}
+  <p>{{e.note}} </p>
+  {%endfor%}
  <div class="thumb2">
   <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
 
