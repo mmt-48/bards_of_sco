@@ -143,17 +143,18 @@ body::before {
  <div class="thumb2">
   <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
    {% for ar in art %}
+
      {% if ar.mind != 2 %}
     <a  href="{% url 'poart' ar.pk %}">
      <div class="thumb">
          {% if "1" in ar.name_artist %}
            <div class="px_l1">
-             <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+             <p>{{ar.mind}}{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
            </div>
            <img src="{{ ar.photo.url }}"  width="255"  height="255">
          {%else%}
            <div class="px_l">
-            <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+            <p>{{ar.mind}}{{ar.name_artist}} {{ar.fam_artist}}</p>
            </div>
            <img src="{{ ar.photo.url }}"  width="189"  height="255">
          {%endif%}
