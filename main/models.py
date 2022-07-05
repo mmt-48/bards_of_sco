@@ -58,6 +58,7 @@ class Artist(models.Model):
     fam_artist = models.CharField(max_length=200, db_index=True, default='')
     photo = models.ImageField(upload_to='artist', default='')
     sco = models.IntegerField(blank=True, null=True, default=0)
+    mind = models.IntegerField(blank=True, null=True, default=0, db_index=True)
 
     def __str__(self):
         return self.name_artist+' '+self.fam_artist
@@ -101,7 +102,8 @@ class Execution(models.Model):
     workfield3 = models.IntegerField(blank=True, null=True)
     sco = models.IntegerField(blank=True, null=True, default=0)
     vid = models.CharField(max_length=400, blank=True,null=True)
-    note1 = models.CharField(max_length=200,blank=True, null=True)
+    note1 = models.CharField(max_length=200, blank=True, null=True)
+    mind = models.IntegerField(blank=True, null=True, default=0,db_index=True)
 
     def __str__(self):
         return self.note

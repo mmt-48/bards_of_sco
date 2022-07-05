@@ -143,6 +143,7 @@ body::before {
  <div class="thumb2">
   <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
    {% for ar in art %}
+     {% if ar.mind != 2 %}
     <a  href="{% url 'poart' ar.pk %}">
      <div class="thumb">
          {% if "1" in ar.name_artist %}
@@ -158,6 +159,7 @@ body::before {
          {%endif%}
      </div>
     </a>
+     {%endif%}
    {%endfor%}
 
  </div>

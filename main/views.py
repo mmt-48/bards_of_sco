@@ -102,9 +102,18 @@ def fonp(request, comp_id):
 
 def poart(request, art_id):
 
+    art = Artist.objects.filter(pk=art_id)
+    for a in art:
+        t = a.mind
+        pn = a.name_artist + ' ' + a.fam_artist
+
     son = Song.objects.filter()
 
-    exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
+    if t == 1:
+        exe = Execution.objects.filter(mind=1).order_by('workfield')
+    else:
+        exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
+
 
     u = 0
     i = 0
@@ -116,17 +125,16 @@ def poart(request, art_id):
             e.workfield1 = 2
         u = e.song_id_id
 
-    uu = Artist.objects.get(pk=art_id)
-
-    pn = uu.name_artist + ' ' + uu.fam_artist
-
     comp = Composer.objects.filter()
 
     comp1 = Composer1.objects.filter()
 
     avt = Avtor_text.objects.all
 
-    art = Artist.objects.filter(pk=art_id)
+    if t == 1:
+        art = Artist.objects.filter(mind__gt=0)
+    else:
+        art = Artist.objects.filter(pk=art_id)
 
     trans = Translator.objects.all
 
@@ -239,6 +247,16 @@ def indexx():
         a.sco = 0
         a.save()
 
+    exe = Execution.objects.filter()
+    for e in exe:
+
+        a = Artist.objects.get(pk=e.artist_id_id)
+
+        e.mind = a.mind
+        if e.mind > 0:
+            e.mind = 1
+            e.save()
+
 
     son = Song.objects.filter()
     for s in son:
@@ -248,7 +266,6 @@ def indexx():
     comp = Composer.objects.filter()
 
     for cc in comp:
-
         exe = Execution.objects.filter()
         for e in exe:
             s = Song.objects.get(pk=e.song_id_id)
