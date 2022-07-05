@@ -105,13 +105,15 @@ def poart(request, art_id):
     art = Artist.objects.filter(pk=art_id)
     for a in art:
         t = a.fam_artist[0]
+        print(t)
         pn = a.name_artist + ' ' + a.fam_artist
 
     son = Song.objects.filter()
 
     if t == "1":
         exe = Execution.objects.filter(note__contains="1").order_by('workfield')
-
+        for e in exe:
+            print(e.note)
     else:
         exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
 
@@ -257,7 +259,10 @@ def indexx():
 
         if ll in "12" and not ("1" in e.note):
             e.note = '1'+e.note
+            print()
             e.save()
+
+
 
     son = Song.objects.filter()
     for s in son:
