@@ -140,10 +140,14 @@ body::before {
 
 {%endif%}
 {% for e in exe %}
+  <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
   <p>lll{{e.note}} </p>
   {%endfor%}
+  {% for ar in art %}
+    <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+  {%endfor%}
  <div class="thumb2">
-  <h1 align="center">lllПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
+  <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
 
    {% for ar in art %}
      {% if "2" not in ar.fam_artist %}

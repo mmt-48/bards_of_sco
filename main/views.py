@@ -211,13 +211,14 @@ def index01(request):
 def fon(request):
 
     if "DESKTOP" in socket.gethostname():
-       indexx()
+        indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
     comp1 = Composer1.objects.filter()
 
     art = Artist.objects.filter(sco=2)
+
     exe = Execution.objects.filter()
     context = {
         'exe': exe,
