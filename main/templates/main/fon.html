@@ -90,10 +90,17 @@ body::before {
 
  <!-- Yandex.Metrika counter -->
  <div class="thumb2">
-  <h1 align="center">ПРОСИМ ИЗВИНИТЬ! САЙТ НАХОДИТСЯ НА РЕКОНСТРУКЦИИ.</h1>
-
-
+  <h1 align="center">ИЗВИНИТЕ! САЙТ НАХОДИТСЯ НА РЕКОНСТРУКЦИИ.</h1>
  </div>
+
+{% for e in exe %}
+
+  <p>{{e.note}} </p>
+  {%endfor%}
+  {% for ar in art %}
+    <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+  {%endfor%}
+
 
 </body>
 </html>

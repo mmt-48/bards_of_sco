@@ -219,7 +219,7 @@ def fon(request):
 
     art = Artist.objects.filter(sco=2)
 
-    exe = Execution.objects.filter()
+    exe = Execution.objects.all()
     context = {
         'exe': exe,
         'comp': comp,
@@ -261,8 +261,6 @@ def indexx():
             e.note = '1'+e.note
             print()
             e.save()
-
-
 
     son = Song.objects.filter()
     for s in son:
