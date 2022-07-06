@@ -219,7 +219,7 @@ def fon(request):
 
     art = Artist.objects.filter(sco=2)
 
-    exe = Execution.objects.filter(note__contains="1")
+    exe = Execution.objects.filter(sco=0)
     context = {
         'exe': exe,
         'comp': comp,
