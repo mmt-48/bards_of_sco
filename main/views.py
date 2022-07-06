@@ -105,7 +105,7 @@ def poart(request, art_id):
     art = Artist.objects.filter(pk=art_id)
     for a in art:
         t = a.fam_artist[0:1]
-        pn = a.name_artist + ' ' + a.fam_artist
+        pn = '**'+t+'**'+a.name_artist + ' ' + a.fam_artist
 
     son = Song.objects.filter()
 
@@ -147,6 +147,7 @@ def poart(request, art_id):
         'art': art,
         'son': son,
         'exe': exe,
+        't': t,
         'pn': pn
         }
 
