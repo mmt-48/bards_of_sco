@@ -98,6 +98,7 @@ body::before {
   <p>{{e.note}} </p>
   {%endfor%}
   {% for ar in art %}
+   <a  href="{% url 'poart' ar.pk %}">
     <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
   {%endfor%}
 
