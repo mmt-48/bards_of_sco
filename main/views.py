@@ -193,8 +193,8 @@ def fonpg(request):
 
 
 def index01(request):
-    if "DESKTOP" in socket.gethostname():
-        indexx()
+   # if "DESKTOP" in socket.gethostname():
+    #    indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -210,8 +210,8 @@ def index01(request):
 
 def fon(request):
 
-    if "DESKTOP" in socket.gethostname():
-        indexx()
+   # if "DESKTOP" in socket.gethostname():
+    #    indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
