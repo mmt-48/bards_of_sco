@@ -211,9 +211,7 @@ all_audio[i].play();
 {%endif%}
 
  {% for e in exe %}
-<div class="thumbb">
- <h1 align="center"> {{e.note}} </h1>
-    </div>
+
   {% for s in son %}
    {% if e.song_id_id == s.pk %}
     {%if e.workfield1 == 1%}

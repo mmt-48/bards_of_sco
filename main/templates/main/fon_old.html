@@ -139,42 +139,29 @@ body::before {
 {% endfor %}
 
 {%endif%}
-{% for e in exe %}
 
-  <p>{{e.note}} </p>
-  {%endfor%}
-  {% for ar in art %}
-    <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-  {%endfor%}
+
  <div class="thumb2">
   <h1 align="center">ПЕСНИ, КОТОРЫЕ МЫ ЛЮБИМ</h1>
 
    {% for ar in art %}
-     {% if "2" not in ar.fam_artist %}
      <a  href="{% url 'poart' ar.pk %}">
+     {% if "2" not in ar.fam_artist %}
+
      <div class="thumb">
       {% if "1" in ar.name_artist %}
        <div class="px_l1">
-        {% if "1" in ar.fam_artist %}
-          <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist|slice:"1:"}}</p>
-         {%else%}
-           <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-         {%endif%}
+         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
        </div>
        <img src="{{ ar.photo.url }}"  width="255"  height="255">
      {%else%}
       <div class="px_l">
-           {% if "1" in ar.fam_artist %}
-        <p>{{ar.name_artist}} {{ar.fam_artist|slice:"1:"}}</p>
-         {%else%}
-          <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-           {%endif%}
+      <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
       </div>
       <img src="{{ ar.photo.url }}"  width="189"  height="255">
     {%endif%}
      </div>
-      </a>
-     {%endif%}
+    </a>
    {%endfor%}
 
  </div>

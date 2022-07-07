@@ -105,20 +105,24 @@ def poart(request, art_id):
     art = Artist.objects.filter(pk=art_id)
     for a in art:
         t = a.fam_artist[0:1]
-        pn = '**'+t+'**'+a.name_artist + ' ' + a.fam_artist
+        if t in '12':
+            pn = a.name_artist + ' ' + a.fam_artist[1:]
+        else:
+            pn = a.name_artist + ' ' + a.fam_artist
 
     son = Song.objects.filter()
 
     if t == "1":
         exe = Execution.objects.filter(note__contains="1").order_by('workfield')
-
     else:
         exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
-
 
     u = 0
     i = 0
     for e in exe:
+        tt = e.note[0:1]
+        if tt in '12':
+            e.note = e.note[1:]
         e.workfield3 = i
         i = i + 1
         e.workfield1 = 1
@@ -136,6 +140,11 @@ def poart(request, art_id):
         art = Artist.objects.filter()
     else:
         art = Artist.objects.filter(pk=art_id)
+
+    for a in art:
+        tt = a.fam_artist[0:1]
+        if tt in '12':
+            a.fam_artist = a.fam_artist[1:]
 
     trans = Translator.objects.all
 
@@ -194,8 +203,8 @@ def fonpg(request):
 
 
 def index01(request):
-   # if "DESKTOP" in socket.gethostname():
-    #    indexx()
+    if "DESKTOP" in socket.gethostname():
+        indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
@@ -211,14 +220,18 @@ def index01(request):
 
 def fon(request):
 
-   # if "DESKTOP" in socket.gethostname():
-    #    indexx()
+    if "DESKTOP" in socket.gethostname():
+        indexx()
 
     comp = Composer.objects.filter(sco=1).order_by('orderr')
 
     comp1 = Composer1.objects.filter()
 
     art = Artist.objects.filter(sco=2)
+    for a in art:
+        t = a.fam_artist[0:1]
+        if t in '12':
+            a.fam_artist = a.fam_artist[1:]
 
     exe = Execution.objects.filter(sco=0)
     context = {
