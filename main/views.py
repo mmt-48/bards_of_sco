@@ -143,7 +143,7 @@ def poart(request, art_id):
 
     for a in art:
         tt = a.fam_artist[0:1]
-        if tt in '12':
+        if tt == '1':
             a.fam_artist = a.fam_artist[1:]
 
     trans = Translator.objects.all
@@ -230,7 +230,7 @@ def fon(request):
     art = Artist.objects.filter(sco=2)
     for a in art:
         t = a.fam_artist[0:1]
-        if t in '12':
+        if t == '1':
             a.fam_artist = a.fam_artist[1:]
 
     exe = Execution.objects.filter(sco=0)
