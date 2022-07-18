@@ -233,9 +233,7 @@ def fon(request):
         if t == '1':
             a.fam_artist = a.fam_artist[1:]
 
-    exe = Execution.objects.filter(sco=0)
     context = {
-        'exe': exe,
         'comp': comp,
         'art': art,
         'comp1': comp1

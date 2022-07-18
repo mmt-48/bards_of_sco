@@ -146,8 +146,8 @@ body::before {
 
    {% for ar in art %}
      <a  href="{% url 'poart' ar.pk %}">
-     {% if '2' in ar.fam_artist %}
-     {%else%}
+     {% if '2' not in ar.fam_artist %}
+
       <div class="thumb">
       {% if "1" in ar.name_artist %}
        <div class="px_l1">
