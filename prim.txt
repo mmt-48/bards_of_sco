@@ -6,7 +6,8 @@ zakomentirovat
 git push git@github.com:mmt-48/bards_for_children.git master
 
 voiti v putti  
-cd b (TAB)
+cd b (TAB) 
+войти в нужную папку cd /////
 CTRL-R 
 git pull origin master
 sudo systemctl restart p5
