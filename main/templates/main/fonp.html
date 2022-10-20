@@ -144,19 +144,26 @@
         <p> исполнение </p>
        </div>
       {%endif%}
-
-
-      {% if "1" in ar.name_artist %}
-       <div class="px_l1">
-        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-       </div>
+          {% if "1" in ar.name_artist %}
+        <div class="px_l1">
+            {% if "2" in ar.fam_artist %}
+         <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist|slice:"1:"}}</p>
+            {%else%}
+            <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+            {%endif%}
+        </div>
         <img src="{{ar.photo.url}}" width="255" >
        {%else%}
         <div class="px_l">
-         <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+            {% if "2" in ar.fam_artist %}
+         <p>{{ar.name_artist}} {{ar.fam_artist|slice:"1:"}}</p>
+            {%else%}
+             <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+            {%endif%}
         </div>
-        <img src="{{ar.photo.url}}" width="189">
+        <img src="{{ar.photo.url}}" width="189" >
        {%endif%}
+
       </div>
      {% endif %}
     {% endfor %}
