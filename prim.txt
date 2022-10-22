@@ -3,7 +3,7 @@ git add db.sqlite3
 git commit
 в редакторе внести комментарий
 zakomentirovat
-git push git@github.com:mmt-48/bards_for_children.git master
+git push git@github.com:mmt-48/bards_for_children.git p5:master
 
 voiti v putti  
 cd b (TAB) 
