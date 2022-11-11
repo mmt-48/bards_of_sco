@@ -113,7 +113,7 @@ def poart(request, art_id):
     son = Song.objects.filter()
 
     if t == "1":
-        exe = Execution.objects.filter(note__contains="1").order_by('workfield')
+        exe = Execution.objects.filter(note__contains="1", sco=0).order_by('workfield')
     else:
         exe = Execution.objects.filter(artist_id=art_id).filter(sco=0).order_by('workfield')
 
