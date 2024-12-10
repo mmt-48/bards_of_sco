@@ -59,11 +59,24 @@
        <p> слова </p>
                 </div>
           {%endif%}
-  <div class="px_l">
+
+          {% if "1" in a.name_avtor_text %}
+          <div class="px_l">
+       <p>{{a.name_avtor_text|slice:"1:"}} {{a.fam_avtor_text}}</p>
+              </div>
+       <img src="{{a.photo.url }}" width="255" >
+      {%else%}
+          <div class="px_l">
        <p>{{a.name_avtor_text}} {{a.fam_avtor_text}}</p>
-      </div>
+          </div>
        <img src="{{a.photo.url }}" width="189" >
+      {%endif%}
+
+
+
       </div>
+
+
      {%endif%}
 
     {% for t in trans %}
