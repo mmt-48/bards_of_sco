@@ -11,4 +11,7 @@ cd b (TAB)
 CTRL-R 
 git pull origin master
 sudo systemctl restart p5
+по идее должно быь sco но вроде p5
 
+
+        
